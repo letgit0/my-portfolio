@@ -17,7 +17,7 @@ function Highlights() {
     },
     {
       title: "Problem Solving",
-      value: "100+",
+      value: "300+",
       desc: "LeetCode / coding practice across core topics",
     },
   ];

@@ -99,14 +99,14 @@ function Contact() {
           <input
             type="text"
             name="name"
-            placeholder="Jane Doe"
+            placeholder="Your name"
             className="p-3 bg-slate-800 border border-slate-700 rounded-md focus:outline-none focus:border-sky-400"
           />
 
           <input
             type="email"
             name="email"
-            placeholder="you@example.com"
+            placeholder="youremail@example.com"
             className="p-3 bg-slate-800 border border-slate-700 rounded-md focus:outline-none focus:border-sky-400"
           />
 

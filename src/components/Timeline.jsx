@@ -2,29 +2,29 @@ import { useEffect, useRef, useState } from "react";
 
 function Timeline() {
   const items = [
-    {
-      year: "2026",
-      type: "education",
-      icon: "🎓",
-      title: "3rd Year, B.Tech CSE",
-      desc: "Mostly focused on frontend. Working with React and trying to build things that scale without turning into a mess.",
-      current: true
-    },
-    {
-      year: "2025",
-      type: "projects",
-      icon: "🚀",
-      title: "Built Real Projects",
-      desc: "Moved beyond tutorials. Built apps with APIs, handled state, broke things, fixed them.",
-    },
-    {
-      year: "2024",
-      type: "start",
-      icon: "💼",
+  {
+    year: "2026",
+    type: "education",
+    icon: "🎓",
+    title: "3rd Year, B.Tech CSE",
+    desc: "Focused on building real software. Working with React, handling state, and figuring out how to structure apps that don’t turn into chaos.",
+    current: true
+  },
+  {
+    year: "2025",
+    type: "projects",
+    icon: "🚀",
+    title: "Built Real Projects",
+    desc: "Moved beyond tutorials. Built apps with APIs, managed state, debugged issues, and learned how things actually break in real scenarios.",
+  },
+  {
+    year: "2024",
+    type: "start",
+    icon: "💼",
       title: "Started Web Development",
       desc: "HTML, CSS, JavaScript. Learned the basics and built my first responsive sites.",
-    }
-  ];
+  }
+];
 
   const [visible, setVisible] = useState(false);
   const ref = useRef();

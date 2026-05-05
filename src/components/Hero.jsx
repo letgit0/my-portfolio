@@ -18,7 +18,7 @@ function Hero() {
 
         {/* role */}
         <h2 className="text-lg sm:text-xl md:text-2xl text-sky-400 mb-6">
-          I build frontend stuff that doesn’t feel clunky.
+          I build software that doesn’t feel clunky.
         </h2>
 
         {/* description */}
