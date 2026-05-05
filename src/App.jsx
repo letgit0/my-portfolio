@@ -3,7 +3,7 @@ import Hero from "./components/Hero";
 import Footer from "./components/Footer";
 import Test from "./components/Test";
 import Projects from "./components/Projects";
-import Timeline from "./components/TimeLine";
+import Timeline from "./components/Timeline";
 import TechStack from "./components/TechStack";
 import Contact from "./components/Contact";
 import Hightlights from "./components/Highlights";
