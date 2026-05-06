@@ -4,6 +4,12 @@ This is my personal portfolio website built to showcase my projects, skills, and
 
 ---
 
+## 🚀 Live Demo
+
+[Click here to view the live site](https://smita-dev.vercel.app)  
+
+---
+
 ## 📌 Features
 - Responsive design (mobile + desktop friendly)
 - Modern UI/UX layout
