@@ -18,7 +18,6 @@ function App() {
       <div id="projects"><Projects /></div>
       <TechStack />
       <div id="contact"><Contact /></div>
-      {/* <div id="about"><About /></div> */}
       <Footer />
     </>
   );

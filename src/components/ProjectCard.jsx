@@ -1,23 +1,31 @@
 function ProjectCard({ title, description, tech, github, live }) {
   return (
-    <div className="group bg-slate-800/50 p-6 rounded-xl border border-slate-700 hover:border-sky-400/40 transition flex flex-col justify-between">
+    <div className="group glass glass-hover p-8 rounded-2xl flex flex-col justify-between transition-all duration-300">
       
       {/* Top */}
       <div>
-        <h3 className="text-xl font-semibold mb-3 group-hover:text-sky-400 transition">
+        <div className="flex items-center justify-between mb-6">
+          <div className="w-10 h-10 rounded-xl bg-sky-500/10 flex items-center justify-center text-sky-400 group-hover:bg-sky-500 group-hover:text-slate-900 transition-all duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+            </svg>
+          </div>
+        </div>
+
+        <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-sky-400 transition-colors">
           {title}
         </h3>
 
-        <p className="text-slate-300 mb-5 leading-relaxed text-sm">
+        <p className="text-slate-400 mb-8 leading-relaxed text-sm">
           {description}
         </p>
 
         {/* Tech tags */}
-        <div className="flex flex-wrap gap-2 mb-6">
+        <div className="flex flex-wrap gap-2 mb-8">
           {tech.map((t, i) => (
             <span
               key={i}
-              className="text-xs px-2 py-1 bg-slate-700 rounded-md text-slate-300"
+              className="text-[10px] px-3 py-1 bg-slate-800/50 border border-slate-700/50 rounded-full text-slate-400 font-bold tracking-wider uppercase group-hover:border-sky-500/30 group-hover:text-sky-400/70 transition-colors"
             >
               {t}
             </span>
@@ -26,23 +34,25 @@ function ProjectCard({ title, description, tech, github, live }) {
       </div>
 
       {/* Actions */}
-      {/* <div className="flex gap-3">
+      <div className="flex gap-4">
         <a
-          href={live}
+          href={live || "#"}
           target="_blank"
-          className="text-sm px-4 py-2 bg-sky-400 text-black rounded-md font-medium hover:bg-sky-500 transition"
+          rel="noopener noreferrer"
+          className="flex-1 text-center py-3 bg-sky-500 text-slate-900 text-xs font-black uppercase tracking-widest rounded-xl hover:bg-sky-400 transition-colors shadow-lg shadow-sky-500/10"
         >
-          Live
+          Live Demo
         </a>
 
         <a
-          href={github}
+          href={github || "#"}
           target="_blank"
-          className="text-sm px-4 py-2 border border-slate-600 rounded-md hover:border-sky-400 hover:text-sky-400 transition"
+          rel="noopener noreferrer"
+          className="flex-1 text-center py-3 border border-slate-700 text-slate-300 text-xs font-black uppercase tracking-widest rounded-xl hover:border-sky-500/50 hover:text-sky-400 transition-all bg-slate-800/30"
         >
           GitHub
         </a>
-      </div> */}
+      </div>
     </div>
   );
 }
