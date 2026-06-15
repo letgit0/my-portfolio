@@ -1,10 +1,12 @@
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
+import {Turnstile} from "react-turnstile";
 
 function Contact() {
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState("");
   const [lastSubmitTime, setLastSubmitTime] = useState(0);
+  const [captchaToken, setCaptchaToken] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -58,6 +60,10 @@ function Contact() {
       setStatus("Please wait before sending another message.");
       return;
     }
+    if (!captchaToken) {
+      setStatus("Please complete verification.");
+      return;
+    }
 
     setLoading(true);
     setStatus("");
@@ -72,6 +78,7 @@ function Contact() {
       .then(() => {
         setStatus("Message sent successfully!");
         setLastSubmitTime(Date.now());
+        setCaptchaToken("");
         form.reset();
       })
       .catch((error) => {
@@ -187,6 +194,15 @@ function Contact() {
                   className="w-full p-4 bg-slate-900/50 border border-slate-700 rounded-2xl focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition-all placeholder:text-slate-700 text-sm resize-none"
                 ></textarea>
               </div>
+              <Turnstile
+  sitekey={import.meta.env.VITE_TURNSTILE_SITE_KEY}
+  onVerify={(token) => {
+    setCaptchaToken(token);
+  }}
+  onExpire={() => {
+    setCaptchaToken("");
+  }}
+/>
 
               <button
                 type="submit"

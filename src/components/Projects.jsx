@@ -13,7 +13,7 @@ function Projects() {
     {
       title: "FinTrack",
       description:
-        "A Finance Tracking application with secure authentication and CRUD operations for transactions. It features interactive dashboards with real-time financial insights, expense categorization, and spending analytics",
+        "Personal finance tracking is often scattered across tools. FinTrack centralizes income and expenses into a secure full-stack app with auth and real-time dashboards, helping users track spending, categorize transactions, and gain clear financial insights through analytics and visualizations.",
       tech: ["MongoDB", "Express.js", "React.js", "Node.js", "TypeScript", "Clerk"],
       github: "https://www.github.com/letgit0/FinTrack",
       live: "https://fin-track-8jpf.vercel.app",
