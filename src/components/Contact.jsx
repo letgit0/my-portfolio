@@ -3,17 +3,24 @@ import emailjs from "@emailjs/browser";
 
 function Contact() {
   const [loading, setLoading] = useState(false);
-  const [status, setStatus] = useState(""); 
+  const [status, setStatus] = useState("");
+  const [lastSubmitTime, setLastSubmitTime] = useState(0);
 
   function handleSubmit(e) {
     e.preventDefault();
 
-    const formData = new FormData(e.target);
+    const form = e.target;
+    const formData = new FormData(form);
+
+    // Honeypot check
+    if (formData.get("website")) {
+      return;
+    }
 
     const data = {
-      name: formData.get("name"),
-      email: formData.get("email"),
-      message: formData.get("message"),
+      name: formData.get("name")?.trim(),
+      email: formData.get("email")?.trim(),
+      message: formData.get("message")?.trim(),
     };
 
     if (!data.name || !data.email || !data.message) {
@@ -21,10 +28,34 @@ function Contact() {
       return;
     }
 
-    // simple email check
+    // Length limits
+    if (data.name.length > 100) {
+      setStatus("Name is too long.");
+      return;
+    }
+
+    if (data.email.length > 254) {
+      setStatus("Email is too long.");
+      return;
+    }
+
+    if (data.message.length > 2000) {
+      setStatus("Message is too long.");
+      return;
+    }
+
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
     if (!emailRegex.test(data.email)) {
       setStatus("Please enter a valid email.");
+      return;
+    }
+
+    // Prevent rapid submissions
+    const now = Date.now();
+
+    if (now - lastSubmitTime < 10000) {
+      setStatus("Please wait before sending another message.");
       return;
     }
 
@@ -35,14 +66,16 @@ function Contact() {
       .sendForm(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
         import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        e.target,
+        form,
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       )
       .then(() => {
         setStatus("Message sent successfully!");
-        e.target.reset();
+        setLastSubmitTime(Date.now());
+        form.reset();
       })
-      .catch(() => {
+      .catch((error) => {
+        console.log(error);
         setStatus("Something went wrong. Try again.");
       })
       .finally(() => {
@@ -109,13 +142,23 @@ function Contact() {
           {/* RIGHT: form */}
           <div className="lg:col-span-7 glass p-8 sm:p-10 rounded-3xl shadow-2xl shadow-sky-500/5">
             <form className="flex flex-col gap-6" onSubmit={handleSubmit}>
+              <input
+                type="text"
+                name="website"
+                tabIndex="-1"
+                autoComplete="off"
+                className="hidden"
+                aria-hidden="true"
+              />
               <div className="grid sm:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="text-[10px] font-black uppercase tracking-widest text-slate-500 ml-1">Name</label>
                   <input
                     type="text"
                     name="name"
+                    required
                     placeholder="Your name"
+                    maxLength={100}
                     className="w-full p-4 bg-slate-900/50 border border-slate-700 rounded-2xl focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition-all placeholder:text-slate-700 text-sm"
                   />
                 </div>
@@ -125,6 +168,8 @@ function Contact() {
                   <input
                     type="email"
                     name="email"
+                    required
+                    maxLength={254}
                     placeholder="youremail@example.com"
                     className="w-full p-4 bg-slate-900/50 border border-slate-700 rounded-2xl focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition-all placeholder:text-slate-700 text-sm"
                   />
@@ -136,6 +181,8 @@ function Contact() {
                 <textarea
                   name="message"
                   rows="5"
+                  required
+                  maxLength={2000}
                   placeholder="Tell me about your project..."
                   className="w-full p-4 bg-slate-900/50 border border-slate-700 rounded-2xl focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition-all placeholder:text-slate-700 text-sm resize-none"
                 ></textarea>
