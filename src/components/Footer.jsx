@@ -2,30 +2,31 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 function Footer() {
   return (
-    <footer className="bg-slate-900 text-slate-500 border-t border-slate-800/50">
-      <div className="max-w-7xl mx-auto px-6 sm:px-10 md:px-20 py-12 flex flex-col md:flex-row justify-between items-center gap-8">
+    <footer className="bg-white border-t border-zinc-100 py-16">
+      <div className="section-container flex flex-col md:flex-row justify-between items-center gap-12">
         {/* Left */}
-        <div className="flex flex-col items-center md:items-start gap-2">
-          <h2 className="text-gradient font-black text-xl tracking-tighter">
-            Smita
+        <div className="flex flex-col items-center md:items-start gap-4">
+          <h2 className="font-bold text-lg tracking-tight text-zinc-900">
+            Smita Tiwari
           </h2>
-          <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">
-            © {new Date().getFullYear()} All rights reserved.
+          <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-zinc-400">
+            © {new Date().getFullYear()} — Built with focus and clarity.
           </p>
         </div>
 
         {/* Center */}
-        <nav className="flex flex-wrap justify-center gap-x-8 gap-y-4 text-[10px] font-black uppercase tracking-[0.2em]">
-          <a href="#home" className="hover:text-sky-400 transition-colors">
+        {/* Center */}
+        <nav className="flex flex-wrap justify-center gap-x-8 gap-y-4 text-[11px] font-bold uppercase tracking-widest">
+          <a href="#home" className="text-zinc-500 hover:text-accent transition-colors">
             Home
           </a>
-          <a href="#timeline" className="hover:text-sky-400 transition-colors">
+          <a href="#timeline" className="text-zinc-500 hover:text-accent transition-colors">
             Journey
           </a>
-          <a href="#projects" className="hover:text-sky-400 transition-colors">
+          <a href="#projects" className="text-zinc-500 hover:text-accent transition-colors">
             Projects
           </a>
-          <a href="#contact" className="hover:text-sky-400 transition-colors">
+          <a href="#contact" className="text-zinc-500 hover:text-accent transition-colors">
             Contact
           </a>
         </nav>
@@ -37,19 +38,18 @@ function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
-            className="text-slate-500 transition-all duration-300 hover:scale-110 hover:text-white"
+            className="text-zinc-400 hover:text-accent transition-colors"
           >
-            <FaGithub size={20} />
+            <FaGithub />
           </a>
-
           <a
             href="https://www.linkedin.com/in/smita-/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
-            className="text-slate-500 transition-all duration-300 hover:scale-110 hover:text-white"
+            className="text-zinc-400 hover:text-accent transition-colors"
           >
-            <FaLinkedin size={20} />
+            <FaLinkedin size={18} />
           </a>
         </div>
       </div>

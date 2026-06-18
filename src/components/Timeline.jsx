@@ -3,27 +3,21 @@ import { useEffect, useRef, useState } from "react";
 function Timeline() {
   const items = [
     {
-      year: "2026",
-      type: "education",
-      icon: "🎓",
-      title: "3rd Year, B.Tech CSE",
-      desc: "Focused on building real software, strengthening computer science fundamentals, and learning by creating projects that solve actual problems.",
-      current: true
+      year: "2026–27",
+      title: "Final Year, B.Tech CSE",
+      desc: "Focused on building real-world software, strengthening computer science fundamentals, and learning through hands-on projects.",
+      current: true,
     },
     {
       year: "2025",
-      type: "projects",
-      icon: "🚀",
-      title: "Built Real Projects",
-      desc: "Moved beyond tutorials. Built apps with APIs, managed state, debugged issues, and learned how things actually break in real scenarios.",
+      title: "Building Real Projects",
+      desc: "Moved beyond tutorials and started creating full-stack applications. Learned APIs, state management, debugging, and the realities of software development.",
     },
     {
       year: "2024",
-      type: "start",
-      icon: "💼",
       title: "Started Web Development",
-      desc: "HTML, CSS, JavaScript. Learned the basics and built my first responsive sites.",
-    }
+      desc: "Began with HTML, CSS, and JavaScript, building responsive websites and exploring modern web technologies.",
+    },
   ];
 
   const [visible, setVisible] = useState(false);
@@ -44,79 +38,66 @@ function Timeline() {
     <section
       id="timeline"
       ref={ref}
-      className="bg-slate-900 text-white px-6 sm:px-10 md:px-20 py-24 relative overflow-hidden"
+      className="bg-bg-light py-32 border-t border-zinc-100"
     >
-      {/* Background decoration */}
-      <div className="absolute bottom-1/4 left-0 w-1/3 h-1/2 bg-sky-500/5 blur-[120px] pointer-events-none"></div>
-      <div className="absolute top-1/4 right-0 w-1/4 h-1/3 bg-indigo-500/5 blur-[100px] pointer-events-none"></div>
+      <div className="section-container">
+        {/* Heading */}
+        <div className="max-w-2xl mb-24">
+          <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-accent mb-4">
+                      My journey
+                    </p>
+          <h2 className="text-4xl md:text-5xl font-black tracking-tighter text-zinc-900 leading-tight">
+            Learning through experimentation.
+          </h2>
+        </div>
 
-      {/* Heading */}
-      <div className="max-w-4xl mb-16 relative z-10">
-        <p className="text-sky-400 font-bold tracking-widest uppercase text-[10px] mb-4">
-          My journey
-        </p>
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-black tracking-tighter leading-tight">
-          Learning by <span className="text-gradient">building</span>
-        </h2>
-      </div>
+        {/* Timeline Container */}
+        <div className="relative max-w-4xl">
+          {/* vertical line */}
+          <div className="absolute left-0 top-0 h-full w-px bg-zinc-200"></div>
 
-      {/* Timeline Container */}
-      <div className="relative max-w-4xl mx-auto md:mx-0">
-        {/* vertical line gradient */}
-        <div className="absolute left-3.5 top-0 h-full w-0.5 bg-linear-to-b from-sky-500 via-indigo-500 to-slate-800 rounded-full"></div>
-
-        <div className="space-y-16">
-          {items.map((item, index) => (
-            <div
-              key={index}
-              className={`relative pl-12 transition-all duration-1000 ease-out ${
-                visible
-                  ? "opacity-100 translate-x-0"
-                  : "opacity-0 translate-x-8"
-              }`}
-              style={{ transitionDelay: `${index * 200}ms` }}
-            >
-              {/* icon + dot */}
+          <div className="space-y-20">
+            {items.map((item, index) => (
               <div
-                className={`absolute left-0 top-0 flex items-center justify-center w-7.5 h-7.5 rounded-full text-sm z-10 shadow-lg shadow-sky-500/20
-                ${
-                  item.current
-                    ? "bg-sky-500 text-slate-900 ring-4 ring-sky-500/20"
-                    : "bg-slate-800 border border-slate-700 text-slate-300"
+                key={index}
+                className={`relative pl-12 transition-all duration-700 ease-out ${
+                  visible
+                    ? "opacity-100 translate-x-0"
+                    : "opacity-0 translate-x-4"
                 }`}
+                style={{ transitionDelay: `${index * 150}ms` }}
               >
-                <span className="text-xs">{item.icon}</span>
-              </div>
+                {/* dot */}
+                <div
+                  className={`absolute left-[-4.5px] top-2 w-2.5 h-2.5 rounded-full border-2 
+                  ${
+                    item.current
+                      ? "bg-zinc-900 border-zinc-900"
+                      : "bg-white border-zinc-300"
+                  }`}
+                />
 
-              {/* card */}
-              <div
-                className={`group p-8 rounded-2xl border glass-hover transition-all duration-300 ${
-                  item.current
-                    ? "border-sky-500/30 bg-sky-500/5 shadow-2xl shadow-sky-500/5"
-                    : "border-slate-800 glass"
-                }`}
-              >
-                <div className="flex items-center gap-3 mb-3">
-                  <span className={`px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest ${
-                    item.current ? "bg-sky-500 text-slate-900" : "bg-slate-800 text-slate-400 border border-slate-700"
-                  }`}>
-                    {item.year}
-                  </span>
-                  {item.current && (
-                    <span className="flex h-2 w-2 rounded-full bg-sky-400 animate-pulse"></span>
-                  )}
+                <div className="max-w-2xl">
+                  <div className="flex items-center gap-4 mb-3">
+                    <span className="text-[11px] font-bold uppercase tracking-widest text-zinc-400">
+                      {item.year}
+                    </span>
+                    {item.current && (
+                      <span className="text-[10px] font-bold uppercase px-2 py-0.5 bg-accent/10 text-accent rounded">Current</span>
+                    )}
+                  </div>
+
+                  <h3 className="text-2xl font-bold mb-4 text-zinc-900">
+                    {item.title}
+                  </h3>
+
+                  <p className="text-zinc-500 leading-relaxed text-base">
+                    {item.desc}
+                  </p>
                 </div>
-
-                <h3 className="text-2xl font-bold mb-3 group-hover:text-sky-400 transition-colors">
-                  {item.title}
-                </h3>
-
-                <p className="text-slate-400 leading-relaxed text-sm sm:text-base">
-                  {item.desc}
-                </p>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

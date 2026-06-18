@@ -1,19 +1,18 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Footer from "./components/Footer";
-import Test from "./components/Test";
 import Projects from "./components/Projects";
 import Timeline from "./components/Timeline";
 import TechStack from "./components/TechStack";
 import Contact from "./components/Contact";
-import Hightlights from "./components/Highlights";
+import Highlights from "./components/Highlights";
 
 function App() {
   return (
     <>
       <Navbar />
       <div id="home"><Hero /></div>
-      <Hightlights />
+      <Highlights />
       <Timeline />
       <div id="projects"><Projects /></div>
       <TechStack />
