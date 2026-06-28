@@ -9,7 +9,7 @@ function Hero() {
         <div className="animate-fade-in-up">
           {/* small intro */}
           <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-accent mb-6">
-            Software Developer
+            Software Engineer
           </p>
 
           {/* name */}
@@ -49,7 +49,7 @@ function Hero() {
           <div className="flex items-center gap-6 text-[11px] font-bold text-zinc-400 uppercase tracking-widest">
             <a href="https://github.com/letgit0" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">GitHub</a>
             <span className="w-1 h-1 bg-zinc-300 rounded-full"></span>
-            <a href="https://www.linkedin.com/in/smita-/" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">LinkedIn</a>
+            <a href="https://www.linkedin.com/in/smita27/" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">LinkedIn</a>
           </div>
         </div>
 

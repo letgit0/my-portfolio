@@ -101,7 +101,7 @@ function Contact() {
               
               <div className="flex gap-8 pt-4">
                 <a href="https://github.com/letgit0" target="_blank" rel="noopener noreferrer" className="text-[11px] font-bold uppercase tracking-widest text-zinc-900 hover:text-accent transition-colors">GitHub</a>
-                <a href="https://www.linkedin.com/in/smita-/" target="_blank" rel="noopener noreferrer" className="text-[11px] font-bold uppercase tracking-widest text-zinc-900 hover:text-accent transition-colors">LinkedIn</a>
+                <a href="https://www.linkedin.com/in/smita27/" target="_blank" rel="noopener noreferrer" className="text-[11px] font-bold uppercase tracking-widest text-zinc-900 hover:text-accent transition-colors">LinkedIn</a>
               </div>
             </div>
           </div>

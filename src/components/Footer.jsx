@@ -43,7 +43,7 @@ function Footer() {
             <FaGithub />
           </a>
           <a
-            href="https://www.linkedin.com/in/smita-/"
+            href="https://www.linkedin.com/in/smita27/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
