@@ -6,7 +6,7 @@ This is my personal portfolio website built to showcase my projects, skills, and
 
 ## 🚀 Live Demo
 
-[Click here to view the live site](https://smita-dev.vercel.app)  
+[Click here to view the live site](https://smitatiwari.vercel.app)  
 
 ---
 
@@ -20,12 +20,14 @@ This is my personal portfolio website built to showcase my projects, skills, and
 ---
 
 ## 🛠️ Tech Stack
-- HTML / CSS / JavaScript
-- React.js
-- Vite 
-- Tailwind CSS 
-- EmailJS 
-- React Icons (icon library)
+
+- React 19
+- Vite
+- Tailwind CSS 4
+- EmailJS
+- React Icons
+- Cloudflare Turnstile
+- JavaScript (ES2024)
 
 ---
 
@@ -38,12 +40,13 @@ smita-portfolio
 │   ├── App.jsx
 │   ├── main.jsx
 │   └── index.css
+├── public/
 ├── index.html
 ├── .env
 ├── package.json
 └── vite.config.js
 ```
 ---
-## 🚓License
+## 🚓 License
 
 This project is open source and available under the MIT License.

@@ -2,4 +2,4 @@ User-agent: *
 
 Allow: /
 
-Sitemap: https://smita-dev.vercel.app/sitemap.xml
+Sitemap: https://smitatiwari.vercel.app/sitemap.xml
